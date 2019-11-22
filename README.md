@@ -14,25 +14,45 @@ We train our DANet-101 with only fine annotated data and submit our test results
 
 ## Usage
 
-1. Install pytorch 
+0. Ensure CUDA 10.0 is used.
+   ```shell
+	$ nvcc -V
+   ```
+	should output cuda 10.0
 
-  - The code is tested on python3.6 and official [Pytorch@commitfd25a2a](https://github.com/pytorch/pytorch/tree/fd25a2a86c6afa93c7062781d013ad5f41e0504b#from-source), please install PyTorch from source.
-  - The code is modified from [PyTorch-Encoding](https://github.com/zhanghang1989/PyTorch-Encoding). 
+1. Create a virtual env with conda using python 3.6.7
+   ```shell
+	$ conda create -n danet-env python==3.6.7
+	$ which pip
+   ```
+   Ensure the pip is the pip within the virutal environment
+
+2. Install pytorch 1.0.0 and torch vision 
+   ```shell
+	$ conda install pytorch==1.0.0 torchvision==0.2.1 cuda100 -c pytorch
+   ```
   
-2. Clone the repository:
+3. Clone the repository and build:
 
    ```shell
    git clone https://github.com/junfu1115/DANet.git 
    cd DANet 
-   python setup.py install
+   pip install .
+   python setup.py install --record files.txt
+   ```
+   In case the ninja problem still persists. 
+   ```shell
+   cd DANet
+   xargs rm -rf < files.txt
+   python setup.py install --record files.txt
    ```
    
-3. Dataset
+4. Dataset
 
   - Download the [Cityscapes](https://www.cityscapes-dataset.com/) dataset and convert the dataset to [19 categories](https://github.com/mcordts/cityscapesScripts/blob/master/cityscapesscripts/helpers/labels.py). 
   - Please put dataset in folder `./datasets`
 
-4 . Evaluation
+5. Evaluation
 
   - Download trained model [DANet101](https://drive.google.com/open?id=1XmpFEF-tbPH0Rmv4eKRxYJngr3pTbj6p) and put it in folder `./danet/cityscapes/model`
   - Evaluation code is in folder `./danet/cityscapes`
