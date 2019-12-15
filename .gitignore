@@ -8,3 +8,9 @@ docs/src/
 docs/html/
 encoding/_ext/
 encoding.egg-info/
+torch_encoding.egg-info/
+danet/cityscapes/
+datasets/cityscapes/*
+!datasets/cityscapes/*.py
+danet/cityscapes/*
+danet/pretrain_models/*

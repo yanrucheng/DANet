@@ -17,11 +17,12 @@ def frames_to_image(image_folder, fps):
 
     fourcc = cv2.VideoWriter_fourcc(*'MP4V')
     video = cv2.VideoWriter(video_name, fourcc, fps, (width,height))
+    print('Writing to {}'.format(video_name))
 
     for image in sorted(images):
         video.write(cv2.imread(os.path.join(image_folder, image)))
 
-    cv2.destroyAllWindows()
+    #cv2.destroyAllWindows()
     video.release()
 
 if __name__ == '__main__':

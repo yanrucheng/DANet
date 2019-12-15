@@ -1,1 +1,2 @@
-CUDA_VISIBLE_DEVICES=0 python test.py --dataset cityscapes --model danet --resume-dir cityscapes/model --base-size 2048 --crop-size 768 --workers 1 --backbone resnet101 --multi-grid --multi-dilation 4 8 16
+CUDA_VISIBLE_DEVICES=0 python test.py --dataset cityscapes --model danet --resume-dir cityscapes/model --base-size 1920 --crop-size 1080 --workers 1 --backbone resnet101 --multi-grid --multi-dilation 4 8 16
+#CUDA_VISIBLE_DEVICES=0 python test.py --dataset cityscapes --model danet --resume-dir cityscapes/model --base-size 2048 --crop-size 768 --workers 1 --backbone resnet101 --multi-grid --multi-dilation 4 8 16

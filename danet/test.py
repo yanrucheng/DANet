@@ -38,7 +38,7 @@ def test(args):
         testset = get_segmentation_dataset(args.dataset, split='val', mode='testval',
                                            transform=input_transform)
     else:#set split='test' for test set
-        testset = get_segmentation_dataset(args.dataset, split='val', mode='vis',
+        testset = get_segmentation_dataset(args.dataset, split='test', mode='vis',
                                            transform=input_transform)
     # dataloader
     loader_kwargs = {'num_workers': args.workers, 'pin_memory': True} \
@@ -63,6 +63,7 @@ def test(args):
 
     print(model)
     num_class = testset.num_class
+    print(num_class)
     evaluator = MultiEvalModule(model, testset.num_class, multi_scales=args.multi_scales).cuda()
     evaluator.eval()
 
